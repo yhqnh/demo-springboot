@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		maven { url 'http://nexus.dianrong.com/nexus/content/groups/public/' }
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.yhq'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	maven { url 'http://nexus.dianrong.com/nexus/content/groups/public/' }
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	// https://mvnrepository.com/artifact/com.loopj.android/android-async-http
+	compile group: 'com.loopj.android', name: 'android-async-http', version: '1.4.9'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-stream
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-stream', version: '1.2.2.RELEASE'
+	// https://mvnrepository.com/artifact/com.googlecode.xmemcached/xmemcached
+	compile group: 'com.googlecode.xmemcached', name: 'xmemcached', version: '2.4.2'
+}
