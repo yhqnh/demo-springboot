@@ -1,7 +1,10 @@
 package com.yhq.demospringboot;
 
+import com.google.common.base.Stopwatch;
+import com.google.common.base.Ticker;
 import net.rubyeye.xmemcached.HashAlgorithm;
 import net.rubyeye.xmemcached.XMemcachedClient;
+import org.springframework.util.StopWatch;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -46,6 +49,27 @@ public class WaitSleep {
         System.out.println("lq is:" + lq.size());
         System.out.println("mq is:" + mq.size());
         System.out.println((1 << 32) - 1);
+
+        StopWatch sw = new StopWatch();
+
+        sw.start("起床");
+        Thread.sleep(1000);
+        sw.stop();
+
+        sw.start("洗漱");
+        Thread.sleep(2000);
+        sw.stop();
+
+        sw.start("锁门");
+        Thread.sleep(500);
+        sw.stop();
+
+        System.out.println(sw.prettyPrint());
+        System.out.println(sw.getTotalTimeMillis());
+        System.out.println(sw.getLastTaskName());
+        System.out.println(sw.getLastTaskInfo());
+        System.out.println(sw.getTaskCount());
+
     }
 
     public static void testWait() throws Exception{
