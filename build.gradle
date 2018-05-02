@@ -3,7 +3,7 @@ buildscript {
 		springBootVersion = '1.5.7.RELEASE'
 	}
 	repositories {
-		maven { url 'http://nexus.dianrong.com/nexus/content/groups/public/' }
+//		maven { url 'http://nexus.dianrong.com/nexus/content/groups/public/' }
 		mavenCentral()
 	}
 	dependencies {
@@ -14,14 +14,14 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-//apply plugin: 'war'
+apply plugin: 'war'
 
 group = 'com.yhq'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	maven { url 'http://nexus.dianrong.com/nexus/content/groups/public/' }
+//	maven { url 'http://nexus.dianrong.com/nexus/content/groups/public/' }
 	mavenCentral()
 }
 
